@@ -21,7 +21,8 @@ module.exports = {
 		        exclude: /(node_modules|bower_components|build)/,
 		        use:['style-loader','css-loader']
 		    },
-            {         test: /\.(png|jpg|gif|svg)$/,         loader: 'file-loader',         options: {           name: '[name].[ext]?[hash]'         }       }
+            {         test: /\.(png|jpg|gif|svg)$/,         loader: 'file-loader',         options: {           name: '[name].[ext]?[hash]'         }       },
+            { test: /.(png|jpg|woff|woff2|eot|ttf|svg|gif)$/, loader: 'url-loader?limit=1024000' }
         ]
     }
 }
