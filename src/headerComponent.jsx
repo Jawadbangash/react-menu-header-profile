@@ -7,7 +7,7 @@ class TopHeader extends React.Component {
     constructor (props) {
         super (props)
         this.state ={
-            showMenu: true
+            showMenu: false
         }
     }
 
