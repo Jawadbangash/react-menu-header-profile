@@ -1,8 +1,7 @@
 import React from 'react'
 import './headerComp.css'
 import imgBurger from './Hamburger_icon.svg.png'
-
-const arrMenuItems =[{name: 'apple', image: 'img'}]
+import MenuItem from './menuItem/MenuItem'
 
 class TopHeader extends React.Component {
     constructor (props) {
@@ -20,8 +19,8 @@ class TopHeader extends React.Component {
     }
 
     menuItemClickHandler (event, a, b, c) {
-        console.log(event, a, b, c)
-        // this.setState({showMenu: false})
+        console.log(this.props, this.state.showMenu ,event, a, b, c)
+        this.setState({showMenu: false})
     }
 
     render () {
@@ -35,18 +34,16 @@ class TopHeader extends React.Component {
                     </button>
                 </div>
                 {
-                    this.state.showMenu ? (
-                        <div className='menu-bar' >
-                            <div id='menu-bar-item' onClick={(event, a, b, c) => this.menuItemClickHandler(event, a, b, c)}>
-                                <p id='text-in-menuitem'>Sam </p>
-                            </div>                            
-                            <div id='menu-bar-item'>
-                                <p id='text-in-menuitem'>Sam sdafsdfafdawfam sdfasfawfasdf slsdkjflkasdjflkjasdf </p>
-                            </div>                            
-                            <div id='menu-bar-item'>
-                                <p id='text-in-menuitem'>Sam </p>
+                    this.props.arrMenu && this.state.showMenu ? (
+                            <div className='menu-bar' >
+                                {
+                                    this.props.arrMenu.map((item, indx) => {
+                                        return (
+                                            <MenuItem eventFunction={item.callBack} txt={this.props.arrMenu[indx].name} />
+                                        )
+                                    })
+                                }
                             </div>
-                        </div>
                     ) : null 
                 }
             </div>
