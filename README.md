@@ -3,17 +3,17 @@ outside libraries so feature is fast and does not affect the speed of your appli
 
 Next feature relases: 
 
-App Logo and event handler.
-Profile menu and event handlers.
+Profile menu.
 
 How to use:
 
 Insert into top componnent of your app and should be the first one of your compenent tree. 
 
-Pass an array of objects for menu items to the component as props
+Pass an array of objects called arrayMenu for menu items to the component as props
 
 Each menu item should use key value pairs as such
-{
+
+arrayMenu : {
     name: (name of the menu item), 
     callBack: (funcation to trigger on click), 
     image: (under construction, optional image that will be fixed to the left of text)

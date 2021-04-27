@@ -1,6 +1,6 @@
 import React from 'react'
 import './headerComp.css'
-import imgBurger from './Hamburger_icon.svg.png'
+import imgBurger from './Hamburger_icon.png'
 import MenuItem from './menuItem/MenuItem'
 
 class TopHeader extends React.Component {
@@ -19,7 +19,6 @@ class TopHeader extends React.Component {
     }
 
     menuItemClickHandler (event, a, b, c) {
-        console.log(this.props, this.state.showMenu ,event, a, b, c)
         this.setState({showMenu: false})
     }
 
@@ -34,12 +33,12 @@ class TopHeader extends React.Component {
                     </button>
                 </div>
                 {
-                    this.props.arrMenu && this.state.showMenu ? (
+                    this.props.arrayMenu && this.state.showMenu ? (
                             <div className='menu-bar' >
                                 {
-                                    this.props.arrMenu.map((item, indx) => {
+                                    this.props.arrayMenu.map((item, indx) => {
                                         return (
-                                            <MenuItem eventFunction={item.callBack} txt={this.props.arrMenu[indx].name} />
+                                            <MenuItem key='indx' eventFunction={item.callBack} txt={this.props.arrayMenu[indx].name} />
                                         )
                                     })
                                 }
