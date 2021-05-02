@@ -1,14 +1,13 @@
 import React from 'react'
 import './headerComp.css'
-import imgBurger from './Hamburger_icon.svg.png'
-
-const arrMenuItems =[{name: 'apple', image: 'img'}]
+import imgBurger from './Hamburger_icon.png'
+import MenuItem from './menuItem/MenuItem'
 
 class TopHeader extends React.Component {
     constructor (props) {
         super (props)
         this.state ={
-            showMenu: true
+            showMenu: false
         }
     }
 
@@ -20,8 +19,7 @@ class TopHeader extends React.Component {
     }
 
     menuItemClickHandler (event, a, b, c) {
-        console.log(event, a, b, c)
-        // this.setState({showMenu: false})
+        this.setState({showMenu: false})
     }
 
     render () {
@@ -35,18 +33,16 @@ class TopHeader extends React.Component {
                     </button>
                 </div>
                 {
-                    this.state.showMenu ? (
-                        <div className='menu-bar' >
-                            <div id='menu-bar-item' onClick={(event, a, b, c) => this.menuItemClickHandler(event, a, b, c)}>
-                                <p id='text-in-menuitem'>Sam </p>
-                            </div>                            
-                            <div id='menu-bar-item'>
-                                <p id='text-in-menuitem'>Sam sdafsdfafdawfam sdfasfawfasdf slsdkjflkasdjflkjasdf </p>
-                            </div>                            
-                            <div id='menu-bar-item'>
-                                <p id='text-in-menuitem'>Sam </p>
+                    this.props.arrayMenu && this.state.showMenu ? (
+                            <div className='menu-bar' >
+                                {
+                                    this.props.arrayMenu.map((item, indx) => {
+                                        return (
+                                            <MenuItem key='indx' eventFunction={item.callBack} txt={this.props.arrayMenu[indx].name} />
+                                        )
+                                    })
+                                }
                             </div>
-                        </div>
                     ) : null 
                 }
             </div>

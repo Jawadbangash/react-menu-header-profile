@@ -1,6 +1,6 @@
 {
     "name": "react-menu-header-profile",
-    "version": "1.0.3",
+    "version": "1.0.14",
     "description": "Webpage header with menu and profile options. Will be adding more content",
     "keywords": [
         "react",
@@ -34,6 +34,8 @@
     },
     "dependencies": {
         "css-loader": "^5.2.4",
-        "style-loader": "^2.0.0"
+        "file-loader": "^6.2.0",
+        "style-loader": "^2.0.0",
+        "url-loader": "^4.1.1"
     }
 }
